@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="assets/img/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>INTIA</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <style>
+      :root {
+        --color-primary: #003e4d;
+        --color-secondary: #f8b122;
+        --color-text: #808081;
+        --color-basico:#003e4d;
+        --color-avanzado:#288a99;
+        --color-profesional:#31a36c;
+      }
+      html{
+        
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Poppins", sans-serif !important;
+        font-weight: 400 !important;
+        overflow-x: hidden;
+        background: #fff;
+      }
+
+      /* Navbar */
+      .bg-dark {
+        background: transparent !important;
+      }
+      header {
+        position: relative;
+      }
+      .nav-link {
+        color: #fff !important;
+      }
+      .nav-link.active {
+        color: var(--color-secondary) !important;
+        font-weight: 600 !important;
+      }
+      .btn-register {
+        background: transparent;
+        color: #fff;
+        border: 1px solid var(--color-secondary) !important;
+        border-radius: 5px;
+        padding: 0.1rem 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn-login {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        border: 1px solid var(--color-secondary) !important;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.1rem 0.8rem;
+        cursor: pointer;
+      }
+
+      /* Footer */
+      .bg-footer {
+        background: #E6E7E8;
+      }
+      footer h3 {
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+      }
+      .footer-contact a {
+        text-decoration: none;
+        font-weight: 400;
+        color: var(--color-text);
+      }
+      .footer-icon {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+      }
+      .developed small {
+        text-decoration: none;
+        font-weight: 400;
+        color: var(--color-text);
+        overflow-wrap: normal;
+      }
+      .developed img {
+        width: 150px;
+        height: auto;
+      }
+
+      /* ===============================
+      =========== HEADER ===============
+      ================================ */
+
+      .bg-header {
+        height: 880px;
+        position: absolute;
+        z-index: -1;
+        top: -2px;
+        right: 0;
+      }
+      .hero-img{
+        width: 500px;
+      }
+      .texto-header{
+        padding-top: 3rem;
+      }
+      .logo-type-primary {
+        display: none;
+      }
+      .logo-type-white {
+        display: inline-block;
+      }
+      .text-intia-primary,
+      .text-intia-white {
+        width: 100px;
+      }
+      .text-intia-primary {
+        display: none;
+      }
+      .text-intia-white {
+        display: inline-block;
+      }
+
+      .title-landing,
+      .text-header {
+        color: #fff;
+      }
+
+      .btn-comenzar {
+        background-color: #fff;
+        color: var(--color-primary);
+        font-weight: 600;
+        font-size: 0.7rem;
+        display: block;
+        width: 200px;
+        padding: 7px !important;
+        margin: 2rem auto;
+      }
+
+      /* ===============================
+      =========== MAIN ===============
+      ================================ */
+      main {
+        background: #f2f3f7;
+      }
+      .titulo-section {
+        color: var(--color-primary);
+        font-weight: 600;
+        font-size: 2.8rem;
+        text-align: center;
+        padding-top: 5rem;
+      }
+      .subtitulo-section {
+        color: var(--color-text);
+        font-weight: 400;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+
+      /* PRECIOS */
+      .card{
+        border-radius: 15px !important;
+
+      }
+      .card .card-header, .card .card-body{
+        border-radius: 15px !important;
+      }
+      .card.basico .card-header {
+        background: var(--color-primary);
+        margin: 0;
+        padding: 0;
+      }
+      .card.avanzado .card-header {
+        background: var(--color-avanzado);
+        margin: 0;
+        padding: 0;
+      }
+      .card.profesional .card-header {
+        background: var(--color-profesional);
+        margin: 0;
+        padding: 0;
+      }
+      .card .card-header h3 {
+        padding-top: 2rem;
+        font-size: 2rem;
+      }
+      .card .card-header img {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0 0 -5px 0;
+      }
+      .card .card-body {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .precio-card {
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: var(--color-text);
+        font-weight: 400;
+        border-radius: 50%;
+        margin: 0 auto;
+        margin-top: -60px;
+      }
+      .basico .precio-card {
+        border: 5px solid var(--color-basico);
+      }
+      .avanzado .precio-card {
+        border: 5px solid var(--color-avanzado);
+      }
+      .profesional .precio-card {
+        border: 5px solid var(--color-profesional);
+      }
+      .precio-valor {
+        font-size: 3rem;
+      }
+      .precio-text {
+        font-size: 1.3rem;
+      }
+      .caracteristicas {
+        margin-top: 3rem;
+        text-align: center;
+        margin-left: 1rem;
+      }
+      .caracteristicas h3 {
+        color: var(--color-text);
+      }
+      .caracteristicas h5 {
+        font-size: 1rem;
+      }
+      .basico .caracteristicas b {
+        color: var(--color-primary);
+      }
+      .avanzado .caracteristicas b {
+        color: var(--color-avanzado);
+      }
+      .profesional .caracteristicas b {
+        color: var(--color-profesional);
+      }
+
+      .check-icon {
+        width: 20px;
+        height: auto;
+      }
+      .btn:hover{
+        color:#fff;
+      }
+      .btn-sub {
+        background-color: var(--color-primary);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        display: block;
+        width: 200px;
+        padding: 7px !important;
+        margin: 2rem auto;
+      }
+
+      /* NOSOTROS */
+      .titulo-nosotros{
+        font-weight: 600;
+        color: var(--color-primary);
+        font-size: 1.6rem;
+      }
+      .info-nosotros{
+        font-weight: 400;
+        color: var(--color-text);
+        font-size: 1rem;
+      }
+      .info-nosotros b{
+        font-weight: 600;
+        display: block;
+      }
+
+      /* CONTACTO */
+      article.contact{
+        background: #F0F0F3;
+        padding-bottom: 5rem;
+        
+      }
+      .alert-info{
+        background: #c1e0d3;
+      }
+      .form-group input{
+        border-radius: 10px;
+        padding: .65rem .75rem;
+      }
+      .contact textarea{
+        border-radius: 10px;
+        width: 100%;
+        height: 90%;
+        padding: 20px;
+        color: var(--color-text);
+      }
+      .error-campo{
+        color: red;
+        font-weight: 600;
+        padding-left: 10px;
+      }
+      .btn-enviar{
+        background-color: var(--color-primary);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        width: 120px;
+        padding: 7px !important;
+        display: block;
+        margin: 1rem 0 0 auto;
+      }
+
+
+      /* MEDIA QUERS */
+      @media (min-width:758px){
+        .bg-header{
+          top: -100px;
+        }
+        .texto-header{          
+          padding-left: 3rem !important;
+          margin-left: 3rem  !important;
+        }
+      }
+      @media (min-width: 992px) {
+        .bg-header{
+          height: 700px;
+        }
+      }
+      @media (min-width: 1200px) {
+        .text-intia-primary {
+          display: inline-block;
+        }
+        .text-intia-white {
+          display: none;
+        }
+        .bg-header {
+         height: 480px;
+         top: -2px;
+        }
+       
+        .title-landing{
+          color: var(--color-primary);
+        }
+        .text-header {
+          color: #808081;
+        }
+        .btn-comenzar {
+          background-color: var(--color-primary);
+          color: #fff;
+        }
+        
+      }
+      @media (min-width: 1530px) {
+        .logo-type-primary {
+          display: inline-block;
+        }
+        .logo-type-white {
+          display: none;
+        }
+      }
+    
+    </style>
+    <header id="top">
+      <img src="img/bg-header-landing.svg" alt="" class="bg-header" />
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#top">
+          <img src="img/logo-landing.svg" width="150" height="80" class="align-top logo-type-primary" alt="" loading="lazy" />
+          <img src="img/logo.svg" width="150" height="80" class="align-top logo-type-white" alt="" loading="lazy" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto text-center">
+            <a class="nav-link active" href="#planes">Planes</a>
+            <a class="nav-link" href="#servicios">Servicios</a>
+            <a class="nav-link" href="#contacto">Contacto</a>
+            <a class="nav-link" href="register.html"><button class="btn-register">REGISTRATE</button></a>
+            <a class="nav-link" href="login.html"><button class="btn-login">INGRESAR</button></a>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="row mt-5">
+          <div class="col-lg-5 text-center text-lg-left texto-header">
+            <h2 class="title-landing">
+              ¿Qué es
+              <img src="img/text-intia.svg" alt="" class="text-intia-primary pb-2" />
+              <img src="img/text-intia-white.svg" alt="" class="text-intia-white pb-2" />
+              ?
+            </h2>
+            <p class="text-header">
+              Intia es una plataforma diseñada exclusivamente para <b>facilitar y agilizar el trabajo</b> de todos los agentes inmobiliarios. Esto lo hacemos al
+              conectarlos a todos en una misma plataforma.
+            </p>
+            <p class="text-header mt-4">
+              En Intia podes <b>solicitar y ofrecer</b> propiedades en una misma red de agentes inmobiliarios. Nos enfocamos en <b>Ganar-ganar</b>, que no es una técnica,
+              sino una filosofía de la interacción humana.
+            </p>
+            <a href="#" class="btn btn-comenzar">COMENZÁ TU PRUEBA GRATUITA</a>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end columna-hero">
+            <img src="img/ilustracion-hero.svg" alt=""class="hero-img" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="mt-4 " id="planes">
+      <div class="container">
+        <h2 class="titulo-section">Planes comerciales</h2>
+        <h5 class="subtitulo-section">Se manejan por cantidad de perfiles de búsqueda recibido</h5>
+        <div class="row mt-5">
+          <!-- card BASICO -->
+          <div class="col-12 col-md-6 col-lg-4 mt-4">
+            <div class="card basico">
+              <div class="card-header">
+                <h3 class="text-white text-center">Plan Básico</h3>
+                <img src="img/wave-card.svg" alt="" />
+              </div>
+              <div class="card-body">
+                <div class="precio-card">
+                  <span class="precio-valor">$2500</span>
+                  <span class="precio-text">POR MES</span>
+                </div>
+                <div class="caracteristicas text-md-left">
+                  <h5><img src="img/check-card-basico.svg" alt="" class="check-icon" /> Perfiles de búsqueda <b>Ilimitados</b></h5>
+                  <h5><img src="img/check-card-basico.svg" alt="" class="check-icon" /> Alerta interesados <b>10 Créditos</b></h5>
+                </div>
+                <a href="#" class="btn btn-sub">SUSCRIBIRSE</a>
+              </div>
+            </div>
+          </div>
+          <!-- CARD Plan Avanzado -->
+          <div class="col-12 col-md-6 col-lg-4 mt-4">
+            <div class="card avanzado">
+              <div class="card-header">
+                <h3 class="text-white text-center">Plan Avanzado</h3>
+                <img src="img/wave-card.svg" alt="" />
+              </div>
+              <div class="card-body">
+                <div class="precio-card">
+                  <span class="precio-valor">$3500</span>
+                  <span class="precio-text">POR MES</span>
+                </div>
+                <div class="caracteristicas text-md-left">
+                  <h5><img src="img/check-card-avanzado.svg" alt="" class="check-icon" /> Perfiles de búsqueda <b>Ilimitados</b></h5>
+                  <h5><img src="img/check-card-avanzado.svg" alt="" class="check-icon" /> Alerta interesados <b>20 Créditos</b></h5>
+                </div>
+                <a href="#" class="btn btn-sub">SUSCRIBIRSE</a>
+              </div>
+            </div>
+          </div>
+          <!-- CARD TERCERA -->
+          <div class="col-12 col-md-6 col-lg-4 mt-4">
+            <div class="card profesional">
+              <div class="card-header">
+                <h3 class="text-white text-center">Plan Profesional</h3>
+                <img src="img/wave-card.svg" alt="" />
+              </div>
+              <div class="card-body">
+                <div class="precio-card">
+                  <span class="precio-valor">$4500</span>
+                  <span class="precio-text">POR MES</span>
+                </div>
+                <div class="caracteristicas text-md-left">
+                  <h5><img src="img/check-card-profesional.svg" alt="" class="check-icon" /> Perfiles de búsqueda <b>Ilimitados</b></h5>
+                  <h5><img src="img/check-card-profesional.svg" alt="" class="check-icon" /> Alerta interesados <b>Ilimitados</b></h5>
+                </div>
+                <a href="#" class="btn btn-sub">SUSCRIBIRSE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <article>
+        <div class="container">
+          <h2 class="titulo-section  mb-5" id="servicios">Sobre nosotros</h2>
+          <div class="row mt-5 pb-5">
+            <!-- publica tus propiedades -->
+            <div class="col-12 col-md-6 order-1">
+              <img src="img/ilustracion-landing-1.svg" alt="" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-6 mt-5 order-2">
+              <h2 class="titulo-nosotros">Publicá tus propiedades</h2>
+              <p class="info-nosotros">
+                 <b>En Intia podés publicar todas tus propiedades disponibles. </b>
+                 Te permite administrar todo tu inventario y compartirlas con otras inmobiliarias . Además podes enviarlas a un interesado vía Whatsapp.
+                </p>
+            </div>
+             <!-- Solicitá propiedades -->
+            <div class="col-12 col-md-6 mt-5 order-4 order-md-3">
+              <h2 class="titulo-nosotros">Solicitá propiedades</h2>
+              <p class="info-nosotros">
+                 <b>¿Tu cliente está buscando una propiedad que vos no tenes.</b>
+                 <b>o estás en una zona donde no trabajas? </b>
+                 ¡No pierdas la oportunidad de realizar una operación por no tener la propiedad correcta! 
+                 Cargá la propiedad que estás solicitando para que otras inmobiliarias puedan ver lo que buscas y te ofrezcan las suyas! 
+                </p>
+            </div>
+            <div class="col-12 col-md-6 order-3 order-md-4">
+              <img src="img/ilustracion-landing-2.svg" alt="" class="img-fluid">
+            </div>
+            <!--  Interactúa con otras inmobiliarias -->
+            <div class="col-12 col-md-6 order-5">
+              <img src="img/ilustracion-landing-3.svg" alt="" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-6 mt-5 order-6">
+              <h2 class="titulo-nosotros"> Interactúa con otras inmobiliarias</h2>
+              <p class="info-nosotros">
+                 <b>Intia te da la posibilidad de interactuar con otras inmobiliarias </b>
+                 <b>mediante un sistema de comunicación interno.</b>
+                 Solo necesitas publicar tus propiedades y si otra inmobiliaria se comunica y hace match con tu propiedad,
+                  la plataforma te notificará de inmediato para que aproveches la oportunidad!
+                </p>
+            </div>
+            
+          </div>
+      </article>
+      <article class="contact" id="contacto">
+        <div class="container">
+            <h2 class="titulo-section">Contacto</h2>
+            <h5 class="subtitulo-section">Contactate con nosotros para más información</h5>
+            <div class="row">
+              <div class="col-12 mt-5 mb-5 mb-md-0">
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                  <img src="img/check-card-profesional.svg" alt="" class="check-icon">
+                  <strong>Operacion exitosa! </strong> Su consulta ya fue enviada a nuestros agentes
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <form class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nombre Completo" />
+                  <small class="error-campo">*Error de campo</small>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Inmobiliaria" />
+                  <small class="error-campo">*Error de campo</small>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email" />
+                  <small class="error-campo">*Error de campo</small>
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control" placeholder="Telefono" />
+                  <small class="error-campo">*Error de campo</small>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Localidad" />
+                  <small class="error-campo">*Error de campo</small>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <textarea name="mensaje" class="border-0">Consulta...</textarea>
+                <button type="submit" class="btn btn-enviar">ENVIAR</a>
+
+              </div>
+            </form>
+        </div>
+      </article>
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+
+    <footer class="container-fluid py-4 bg-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-lg-3 mt-4">
+            <h3>Ayuda</h3>
+          </div>
+          <div class="col-md-5 col-lg-5 offset-lg-1 footer-contact mt-4">
+            <h3>Contacto</h3>
+            <a href="tel:01134543456">011-3454 3456</a>
+            <a href="mailto:contacto@intia.com.ar">contacto@intia.com.ar</a>
+          </div>
+          <div class="col-md-3 col-lg-3 mt-4">
+            <p class="mt-3">
+              <a href="#"><img src="img/logo-tw.svg" alt="" class="footer-icon" /></a>
+              <a href="#"><img src="img/logo-in.svg" alt="" class="footer-icon" /></a>
+              <a href="#"><img src="img/logo-fb.svg" alt="" class="footer-icon" /></a>
+              <a href="#"><img src="img/logo-instagram.svg" alt="" class="footer-icon" /></a>
+            </p>
+            <a href="#" class="developed">
+              <small>Desarrollado por</small>
+              <img class="img-fluid" src="img/logo_dibrand.svg" alt="logo-developed" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
