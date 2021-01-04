@@ -64,41 +64,56 @@
         cursor: pointer;
       }
       /* main */
-      .register-container {
+      /* CARD CONFIRMACION */
+      .confirmar-container {
         position: relative !important;
       }
-      .bg-register-izquierda {
-        position: relative;
-        width: 100%;
-        margin-top: -50px;
-        height: 90%;
-        z-index: -1;
-      }
-      .bg-register-derecha {
-        width: 100%;
-        height: 90%;
-        display: none;
-      }
 
-      .card.register-form-container {
+      .card.card-container {
         width: 100% !important;
         border-radius: 10px;
         box-shadow: 5px 3px 10px #808081;
+        text-align: center;
+        margin-top: 200px;
       }
-      /* register Form */
+      .icon-bg-confirmacion{
+        width: 100%;
+        height: 300px;
+        margin: 0 auto;
+        margin-left: 10%;
+        position: absolute;
+        z-index: 2;
+        top: -200px;
+    }
+
+
       .title-h2 {
         color: var(--color-primary);
         font-weight: 600;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         text-align: center;
-        padding: 1rem 0;
+        padding: 2rem 0 1rem 0;
       }
-      .form-group input,
-      .row input {
-        border-radius: 5px;
-        font-size: 0.8rem;
+
+      .img-circles {
+        display: block;
+        margin: 0 auto;
       }
-      .btn-registrar {
+
+      .texto-principal {
+        color: var(--color-text);
+        font-weight: 600;
+        padding-top: 1rem;
+        font-size: 1rem;
+      }
+      .texto-secundario{
+        color: var(--color-text);
+        font-weight: 400;
+        padding-top: 1rem;
+        font-size: .9rem;
+      }
+
+      .btn-confirmar {
         background-color: var(--color-primary) !important;
         color: #fff;
         font-weight: 600;
@@ -107,6 +122,12 @@
         width: 50%;
         padding: 7px !important;
         margin: 0 auto;
+        cursor: pointer;
+      }
+      .btn-confirmar:hover{
+          color: #fff;
+        cursor: pointer;
+
       }
 
       /* Footer */
@@ -145,41 +166,44 @@
       /* MEDIA QUERS */
 
       @media (min-width: 600px) {
-        .card.register-form-container {
-          width: 300px !important;
+        .card.card-container {
+          width: 100% !important;
           margin: 0 auto;
-          border-radius: 10px;
+          margin-top: 300px;
+
         }
-        .bg-register-izquierda {
-          position: absolute;
-          margin: 0;
-          top: 0;
-          left: -185px;
-          z-index: -1;
-        }
-        .bg-register-derecha {
-          display: block;
-          position: absolute;
-          top: 45px;
-          left: 190px;
-          z-index: -1;
+        .icon-bg-confirmacion{           
+            top: -290px;
+            left: -30px;
+            height: 400px;
         }
       }
       @media (min-width: 768px) {
+        .card.card-container {
+          width: 100% !important;
+          height: 100%;
+          margin-top: 300px;
+        }
+        .icon-bg-confirmacion{    
+            top: -290px;
+            left: -30px;
+            height: 400px;
+        }
+      }
+
+      @media (min-width: 992px) {
         .title-h2 {
           font-size: 2.3rem;
         }
-        .card.register-form-container {
-          width: 400px !important;
+        .card.card-container {
+          width: 60% !important;
+          height: 100%;
+          margin-top: 300px;
         }
-        .bg-register-izquierda {
-          top: -90px;
-          left: -240px;
-          height: 120%;
-        }
-        .bg-register-derecha {
-          top: 45px;
-          left: 230px;
+        .icon-bg-confirmacion{
+            top: -290px;
+            left: -70px;
+            height: 400px;
         }
       }
     </style>
@@ -213,46 +237,21 @@
 
     <main class="mt-4 mb-5">
       <div class="container">
-        <div class="register-container">
-          <div class="card register-form-container">
+        <div class="confirmar-container">
+            <img src="img/confirmacion.svg" alt="" class="icon-bg-confirmacion">
+          <div class="card card-container">
             <div class="card-body">
-              <h2 class="title-h2">Registrate</h2>
-              <form class="d-flex justify-content-center flex-column">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nombre Completo" />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Inmobiliaria" />
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email" />
-                </div>
-                <div class="form-group">
-                  <input type="number" class="form-control" placeholder="Telefono" />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Localidad" />
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Calle" />
-                  </div>
-                  <div class="col-md-6 mt-3 mt-md-0">
-                    <input type="number" class="form-control" placeholder="Número" />
-                  </div>
-                  <div class="col-md-6 mt-3 my-md-2">
-                    <input type="text" class="form-control" placeholder="Matrícula" />
-                  </div>
-                  <div class="col-md-6 my-3 my-md-2">
-                    <input type="text" class="form-control" placeholder="Colegio" />
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-registrar mt-4">REGISTRATE</button>
-              </form>
+              <h2 class="title-h2">
+                Tu cuenta ha sido
+                <br />
+                confirmada
+              </h2>
+              <img src="img/circulos-confirmacion.svg" alt="" width="60" height="30" class="img-circles" />
+              <spán class="texto-principal">¡Gracias por registrarte en Intia!</span>
+              <p class="texto-secundario">En breve vas a recibir un mail con el aviso que tu cuenta fue validado</p>
+              <a href="landing.html" class="btn btn-confirmar mt-4">VOLVER AL HOME</a>
             </div>
           </div>
-          <img src="img/bg-register-izquierda.svg" alt="" class="bg-register-izquierda" />
-          <img src="img/bg-register-derecha.svg" alt="" class="bg-register-derecha" />
         </div>
       </div>
     </main>
